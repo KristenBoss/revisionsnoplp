@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>N'oubliez pas les paroles - Répertoire</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>N'oubliez pas les paroles 🎤</h1>
+    <nav>
+      <button class="tab-button" onclick="switchTab('add')">Ajouter une chanson</button>
+      <button class="tab-button" onclick="switchTab('status')">Répertoire</button>
+      <button class="tab-button" onclick="switchTab('quiz')">Réviser</button>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Onglet Ajouter une chanson -->
+    <div id="add" class="tab active">
+      <h2>Ajouter une chanson</h2>
+      <input type="text" id="song-title" placeholder="Titre de la chanson" />
+      <textarea id="song-lyrics" placeholder="Paroles de la chanson"></textarea>
+      <select id="song-status">
+        <option value="non apprise">Non apprise</option>
+        <option value="en cours">En cours</option>
+        <option value="apprise">Apprise</option>
+      </select>
+      <button onclick="addSong()">Ajouter</button>
+    </div>
+
+    <!-- Onglet Répertoire -->
+    <div id="status" class="tab">
+      <h2>Répertoire de chansons</h2>
+      <div class="status-section">
+        <h3>Non apprises (<span id="count-unlearned">0</span>)</h3>
+        <ul id="unlearned-list"></ul>
+
+        <h3>En cours (<span id="count-in-progress">0</span>)</h3>
+        <ul id="in-progress-list"></ul>
+
+        <h3>Apprises (<span id="count-learned">0</span>)</h3>
+        <ul id="learned-list"></ul>
+      </div>
+    </div>
+
+    <!-- Onglet Réviser -->
+    <div id="quiz" class="tab">
+      <h2 id="quiz-title">Révision</h2>
+      <div id="quiz-controls">
+        <label for="song-dropdown">Choisir une chanson :</label>
+        <select id="song-dropdown"></select>
+
+        <label for="mask-percentage">Pourcentage de mots à masquer :</label>
+        <input type="number" id="mask-percentage" min="0" max="100" value="20" />%
+
+        <p>La révision commence automatiquement dès qu'une chanson est choisie.</p>
+      </div>
+      <div id="quiz-content"></div>
+      <button onclick="checkAnswers()">Vérifier</button>
+      <p id="quiz-score"></p>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

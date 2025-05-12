@@ -1,0 +1,158 @@
+/* Styles de base */
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: url('logo_noplp.png') no-repeat center center fixed,
+              linear-gradient(to bottom, #0d1b2a, #1b263b);
+  background-size: contain, cover;
+  background-blend-mode: overlay;
+  color: #ffffff;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Filtre sombre pour le contraste */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 40, 0.7);
+  z-index: -1;
+}
+
+/* Effet de lumière animée */
+body::after {
+  content: "";
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 60%);
+  animation: rotate 25s linear infinite;
+  z-index: -2;
+  pointer-events: none;
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* En-tête */
+header {
+  background: rgba(0, 0, 0, 0.6);
+  text-align: center;
+  padding: 20px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+h1 {
+  margin: 0;
+  font-size: 2rem;
+  letter-spacing: 1px;
+}
+
+nav {
+  margin-top: 10px;
+}
+
+.tab-button {
+  background-color: #415a77;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 0 5px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.tab-button:hover {
+  background-color: #778da9;
+}
+
+/* Contenu principal */
+main {
+  padding: 20px;
+  max-width: 900px;
+  margin: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 10px;
+  backdrop-filter: blur(4px);
+}
+
+.tab {
+  display: none;
+}
+
+.tab.active {
+  display: block;
+}
+
+input, textarea, select {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+}
+
+button {
+  background-color: #e0aaff;
+  color: #1b263b;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background-color: #c77dff;
+}
+
+.status-section ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.status-section li {
+  background: #778da9;
+  margin: 5px 0;
+  padding: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.status-section li:hover {
+  background: #a8dadc;
+}
+
+/* Champs de quiz */
+input.blank {
+  width: 120px;
+  padding: 6px;
+  font-size: 16px;
+  margin: 2px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.correct {
+  background-color: #d4edda;
+  border-color: #28a745;
+  color: black;
+}
+
+.incorrect {
+  background-color: #f8d7da;
+  border-color: #dc3545;
+  color: black;
+}
